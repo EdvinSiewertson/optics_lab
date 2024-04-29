@@ -30,7 +30,7 @@ with open(csv_file_path, mode='r') as file:
 beta = [np.deg2rad(k) for k in beta_deg_lst]
 delta = [np.arctan(i/14.5) for i in x_lst] # Distance between prism and image ~ 14.5 cm
 
-# Fitting a function with the data with the inital guess of the refractive index n = 1.6
+# Fitting a function to the data with the inital guess of the refractive index n = 1.6
 fit_vals = curve_fit(snells_law, beta, delta, p0=[1.6])[0]
 x_new = np.linspace(min(beta), max(beta), 100)
 
@@ -55,7 +55,7 @@ glass_dict = {
     "Dense flint glass SF10": (1.7280, 0.01342)
 }
 
-wavelength = 641 # Wavelength in nanometers
+wavelength = 641 # Wavelength of the laser light in nanometers
 n_values = {}
 
 # Iterating through the known glass types and calculating each n-value for the specified wavelength
